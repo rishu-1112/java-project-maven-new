@@ -54,10 +54,6 @@
     </pluginRepositories>
 
          <distributionManagement>
-           <repository>
-             <id>nexus</id>
-             <url>http://13.233.244.62:8081/repository/hotstar-maven-releases/</url>
-           </repository>
            <snapshotRepository>
              <id>nexus</id>
              <url>http://13.233.244.62:8081/repository/hotstar-maven-snapshots/</url>
