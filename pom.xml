@@ -8,8 +8,9 @@
 	<name>myapp</name>
 	<url>http://maven.apache.org</url>
 	 <properties>
-     <maven.compiler.source>1.8</maven.compiler.source>
-     <maven.compiler.target>1.8</maven.compiler.target>
+     <sonar.projectKey>hotstar</sonar.projectKey>
+	    <sonar.host.url>http://13.127.27.37:9000</sonar.host.url>
+	    <sonar.login>${env.SONAR_TOKEN}</sonar.login>
 </properties>
 
 	<dependencies>
@@ -31,9 +32,9 @@
     <finalName>myapp</finalName>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>3.3.1</version>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+	    <artifactId>sonar-maven-plugin</artifactId>
+	    <version>3.9.1.2184</version>
       </plugin>
 	    <plugin>
     <groupId>org.codehaus.mojo</groupId>
