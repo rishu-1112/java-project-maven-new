@@ -13,6 +13,10 @@
     <url>http://maven.apache.org</url>
 
     <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <!-- SonarQube properties -->
         <sonar.projectKey>hotstar</sonar.projectKey>
         <sonar.host.url>http://13.127.27.37:9000</sonar.host.url>
         <sonar.login>${env.SONAR_TOKEN}</sonar.login>
@@ -36,7 +40,14 @@
     <build>
         <finalName>myapp</finalName>
         <plugins>
-            <!-- Modern SonarQube Maven plugin -->
+            <!-- WAR packaging plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version>
+            </plugin>
+
+            <!-- Updated SonarQube Maven plugin -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
@@ -53,15 +64,15 @@
         </pluginRepository>
     </pluginRepositories>
 
-         <distributionManagement>
-           <repository>
-             <id>nexus</id>
-             <url>http://13.233.244.62:8081/repository/hotstar-maven-releases/</url>
-           </repository>
-           <snapshotRepository>
-             <id>nexus</id>
-             <url>http://13.233.244.62:8081/repository/hotstar-maven-snapshots/</url>
-           </snapshotRepository>
-         </distributionManagement>
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <url>http://13.233.244.62:8081/repository/hotstar-maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus</id>
+            <url>http://13.233.244.62:8081/repository/hotstar-maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
